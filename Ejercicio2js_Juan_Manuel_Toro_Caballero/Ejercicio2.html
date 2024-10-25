@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Edad Canina</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 2: Calculadora edad canina</h1>
+
+    <script>
+        //Funcion para calcular la edad canina en años humanos
+        function calcularEdadCanina() {
+            //Pedimos la edad del perro
+            let edadPerro = parseFloat(prompt("Introduce la edad de tu perro: "));
+
+            //Comprobamos si es un número valido
+            if (isNaN(edadPerro) || edadPerro < 0) {
+                alert("Error, la edad que has introducido no es valida");
+                return;
+            }
+
+            //Calculamos la edad del perro en años humanos
+            let edadHumana = edadPerro * 7;
+
+            alert("La edad del perro en años humanos es de " + edadHumana.toFixed + " años");
+        }
+        //Hacemos que aparezca en pantalla nada mas abrir el html en el navegador
+        window.onload = calcularEdadCanina;
+    </script>
+</body>
+
+</html>

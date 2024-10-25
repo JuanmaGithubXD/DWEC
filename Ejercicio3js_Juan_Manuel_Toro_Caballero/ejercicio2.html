@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <!-- Creamos el primer bloque -->
+    <div onmouseover="color()">Pasa por aquí</div>
+
+    <!-- Creamos el segundo bloque -->
+    <div id="efecto" style="padding: 20px; margin-top: 20px;">Efectos del movimiento</div>
+
+    <script>
+        function color() {
+            //Cambia el color de fondo del segundo bloque a verde
+            document.getElementById("efecto").style.backgroundColor = "green";
+        }
+    </script>
+</body>
+
+</html>

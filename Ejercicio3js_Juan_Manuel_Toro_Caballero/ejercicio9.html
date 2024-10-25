@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+    <style>
+        #boton {
+            position: fixed;
+            display: none;
+            background-color: rgb(183, 15, 144);
+            color: white;
+        }
+
+        body {
+            height: 200vh;
+            /* Creamos mas altura para que se pueda bajar la pagina */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Primera línea o cabecera</h1>
+    <div id="boton">Botón</div>
+
+    <script>
+        //Creamos el boton
+        var boton = document.getElementById("boton");
+
+        //Hacemos el evento de bajar para que aparezca el borton
+        window.addEventListener("scroll", function () {
+            //Vemos si hemos bajado lo suficiente para mostrar el boton
+            if (window.scrollY > 0) {
+                boton.style.display = "block"; //Mostramos el boton
+            } else {
+                boton.style.display = "none"; //Si esta en la parte alta oculta el boton
+            }
+        });
+    </script>
+
+</body>
+
+</html>

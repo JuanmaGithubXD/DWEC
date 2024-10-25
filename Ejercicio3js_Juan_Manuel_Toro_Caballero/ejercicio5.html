@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <style>
+        .boton {
+            display: block;
+            width: 100px;
+            cursor: pointer;
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Creamos los botones-->
+    <div id="boton1" class="boton">Pulsar aquí</div>
+    <div id="boton2" class="boton">Pulsar aquí</div>
+
+    <script>
+        //Asociamos los dos botones a la funcion pulsar para que se puedan activcar los dos en el evento
+        document.getElementById("boton1").addEventListener("click", pulsar);
+        document.getElementById("boton2").addEventListener("click", pulsar);
+
+
+        function pulsar(event) {
+            //BUscamos en una variable el id del boton que se pulso
+            var idBoton = event.target.id;
+            //Ya con el id ponemos el boton que se pulso con un alert
+            alert("Has pulsado el botón con id: " + idBoton);
+        }
+    </script>
+
+</body>
+
+</html>

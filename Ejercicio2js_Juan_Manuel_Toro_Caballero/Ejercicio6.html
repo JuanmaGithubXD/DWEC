@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Secuencia Fibonacci</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 6: Generador de Secuencia Fibonacci</h1>
+
+    <script>
+        //Funcion para generar la serie de fibonacci
+        function generarFibonacci(n) {
+            let fibonacci = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+            }
+            return fibonacci.slice(0, n); //Para que no haya problemas añadimos siempre el 0 antes de iniciar
+        }
+
+        //Creamos la funcion principal
+        function solicitarTerminos() {
+            //Pedimos la cantidad de numeros que queremos ver
+            let n = parseInt(prompt("Introduce la cantidad de numeros de la serie de fibonacci que quieres ver:"));
+
+            //Comprobamos que el numero es valido
+            if (isNaN(n) || n <= 0) {
+                alert("Error, el numero que has introducido no es valido");
+                return;
+            }
+
+            //Llamamos a la funcion para que calcule los numeros de la serie
+            let secuencia = generarFibonacci(n);
+
+            //Mostramos los numeros
+            alert("Los primeros " + n + " numeros de la secuencia Fibonacci son: " + secuencia.join(", "));
+        }
+
+        //Hacemos que aparezca en pantalla nada mas abrir el html en el navegador
+        window.onload = solicitarTerminos;
+    </script>
+</body>
+
+</html>

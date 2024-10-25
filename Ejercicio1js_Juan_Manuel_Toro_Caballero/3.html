@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 de JavaScript - Funciones</title>
+    <script>
+        window.onload = function () {
+            // 3.1. Calcular el área y el perímetro de un círculo
+            //Calculamos el area
+            function calcularArea(radio) {
+                return Math.PI * Math.pow(radio, 2);
+            }
+
+            //Calculamos el perímetro
+            function calcularPerimetro(radio) {
+                return 2 * Math.PI * radio;
+            }
+
+            let radio = parseFloat(prompt("Introduce el radio del círculo:"));
+            if (!isNaN(radio) && radio > 0) {
+                let area = calcularArea(radio);
+                let perimetro = calcularPerimetro(radio);
+
+                console.log("Área del círculo: " + area);
+                console.log("Perímetro del círculo: " + perimetro);
+
+                alert("Área del círculo: " + area + "\nPerímetro del círculo: " + perimetro);
+            } else {
+                alert("Error, con este número no se puede calcular el radio");
+            }
+
+            // 3.2. Función para calcular la potencia
+            function calculatePower(base, exponente) {
+                return Math.pow(base, exponente);
+            }
+
+            let base = 2; // Cambia estos valores para probar
+            let exponente = 3; // Cambia estos valores para probar
+            let resultado = calculatePower(base, exponente);
+            console.log("Resultado de " + base + " elevado a " + exponente + ": " + resultado);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Ejercicio 3 de JavaScript - Funciones</h1>
+    <p>Abre la consola del navegador para ver los resultados del ejercicio</p>
+    <p>Si quieres cambiar algun dato puedes cambiarlo desde el HTML</p>
+</body>
+
+</html>

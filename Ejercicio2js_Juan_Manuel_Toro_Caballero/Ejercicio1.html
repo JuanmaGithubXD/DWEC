@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gastos de Viaje</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 1: Calculadora de gastos de viaje</h1>
+
+    <script>
+        //Funcion para calcular el coste total del viaje
+        function calcularGastosViaje() {
+            //Pedimos los datos
+            let gastosAlojamiento = parseFloat(prompt("Introduce los gastos de alojamiento en euros:"));
+            let gastosAlimentacion = parseFloat(prompt("Introduce los gastos de alimentación en euros:"));
+            let gastosEntretenimiento = parseFloat(prompt("Introduce los gastos de entretenimiento en euros:"));
+
+            //Comprobamos si las entradas son numeros validos
+            if (isNaN(gastosAlojamiento) || isNaN(gastosAlimentacion) || isNaN(gastosEntretenimiento)) {
+                alert("Error, los numeros que ha escrito no son validos");
+                return;
+            }
+
+            //Calculamos el coste total
+            let costeTotal = gastosAlojamiento + gastosAlimentacion + gastosEntretenimiento;
+
+            //Mostramos el precio total con 2 decimales
+            alert("El precio total del viaje es de " + costeTotal.toFixed(2) + " euros");
+        }
+
+        //Hacemos que aparezca en pantalla nada mas abrir el html en el navegador
+        window.onload = calcularGastosViaje;
+    </script>
+</body>
+
+</html>

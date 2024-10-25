@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 de JavaScript - Estructuras de Control</title>
+    <script>
+        window.onload = function () {
+            // 2.1. Verificar si un número es positivo, negativo o cero
+            let numero = 2; // Cambia el numero si quieres probarlo
+            if (numero > 0) {
+                console.log(numero + " es positivo.");
+            } else if (numero < 0) {
+                console.log(numero + " es negativo.");
+            } else {
+                console.log("El número es cero.");
+            }
+
+            // 2.2. Determinar la categoría de edad
+            let edad = 23; // Cambia la edad si quieres probarlo
+            if (edad < 18) {
+                console.log("La persona es menor de edad.");
+            } else if (edad >= 18 && edad < 65) {
+                console.log("La persona es adulta.");
+            } else {
+                console.log("La persona es anciana.");
+            }
+
+            // 2.3. Bucle for para imprimir valores de 0 a 4
+            console.log("Valores de i desde 0 hasta 4:");
+            for (let i = 0; i < 5; i++) {
+                console.log(i);
+            }
+
+            // 2.4. Bucle while para imprimir valores de 0 a 4
+            console.log("Valores del contador desde 0 hasta 4:");
+            let contador = 0;
+            while (contador < 5) {
+                console.log(contador);
+                contador++;
+            }
+
+            // 2.5. Bucle do-while para imprimir valores de 0 a 4
+            console.log("Valores de x desde 0 hasta 4:");
+            let x = 0;
+            do {
+                console.log(x);
+                x++;
+            } while (x < 5);
+
+            // 2.6. Bucle for con break cuando i sea igual a 3
+            console.log("Bucle for con break:");
+            for (let i = 0; i < 5; i++) {
+                if (i === 3) {
+                    break; // Detener el bucle cuando i es 3
+                }
+                console.log(i);
+            }
+
+            // 2.7. Bucle for con continue cuando j sea igual a 2
+            console.log("Bucle for con continue:");
+            for (let j = 0; j < 5; j++) {
+                if (j === 2) {
+                    continue; // Saltar la iteración cuando j es 2
+                }
+                console.log(j);
+            }
+
+            // 2.8. Convertir un número del 1 al 12 en el nombre del mes correspondiente
+            let mesNumero = parseInt(prompt("Introduce un número del 1 al 12 para saber el mes correspondiente:"));
+            let nombreMes;
+
+            switch (mesNumero) {
+                case 1: nombreMes = "Enero"; 
+                break;
+                case 2: nombreMes = "Febrero"; 
+                break;
+                case 3: nombreMes = "Marzo"; 
+                break;
+                case 4: nombreMes = "Abril"; 
+                break;
+                case 5: nombreMes = "Mayo"; 
+                break;
+                case 6: nombreMes = "Junio"; 
+                break;
+                case 7: nombreMes = "Julio"; 
+                break;
+                case 8: nombreMes = "Agosto"; 
+                break;
+                case 9: nombreMes = "Septiembre"; 
+                break;
+                case 10: nombreMes = "Octubre"; 
+                break;
+                case 11: nombreMes = "Noviembre"; 
+                break;
+                case 12: nombreMes = "Diciembre"; 
+                break;
+                default: nombreMes = "Error, el numero debe estar entre 1 y 12";
+            }
+
+            console.log("El mes delnumero " + mesNumero + " es: " + nombreMes);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Ejercicio 2 de JavaScript - Estructuras de Control</h1>
+    <p>Abre la consola del navegador para ver los resultados del ejercicio</p>
+    <p>Si quieres cambiar algun dato puedes cambiarlo desde el HTML</p>
+
+</body>
+
+</html>

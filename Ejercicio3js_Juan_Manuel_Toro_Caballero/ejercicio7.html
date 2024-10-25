@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="c1" style="background: red;"></div>
+    <!-- Llamamos a las funciones para que afecten al bloque con el color que queramos-->
+    <div id="c2" style="background: white;" onmouseenter="cambiarColor(event)" onmouseleave="volverBlanco(event)"></div>
+    <div id="c3" style="background: blue;"></div>
+
+    <script>
+        function cambiarColor(event) {
+            //Cambiamos el color del bloque central dependiendo del bloque de donde viene
+            if (event.relatedTarget.id == "c1") {
+                event.target.style.background = "red"; //Desde el bloque rojo
+            } else if (event.relatedTarget.id === "c3") {
+                event.target.style.background = "blue"; //Desde el bloque azul
+            } else {
+                event.target.style.background = "white"; //Si entra desde otro sitio se queda blanco
+            }
+        }
+
+        function volverBlanco(event) {
+            //Cambiamos el color del bloque central a blanco al salir
+            event.target.style.background = "white";
+        }
+    </script>
+
+</body>
+
+</html>

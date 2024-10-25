@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 7: Conversor de Temperatura</h1>
+
+    <script>
+        //Funcion para convertir de Celsius a Fahrenheit
+        function celsiusAFahrenheit(celsius) {
+            return (celsius * 9 / 5) + 32;
+        }
+
+        //Funcion para convertir de Fahrenheit a Celsius
+        function fahrenheitACelsius(fahrenheit) {
+            return (fahrenheit - 32) * 5 / 9;
+        }
+
+        //Funcion principal
+        function solicitarConversion() {
+            //Pedimos que tipo de conversion quiere
+            let tipoConversion = prompt("¿Que tipo de conversion quieres hacer? (1: De Celsius a Fahrenheit, 2: De Fahrenheit a Celsius):");
+
+            //Comprobamos si la opcion es valida
+            if (tipoConversion !== '1' && tipoConversion !== '2') {
+                alert("Por favor, elige 1 o 2.");
+                return;
+            }
+
+            //Pedimos la tempertura que queremos cambiar
+            let temperatura = parseFloat(prompt("Inserta la temperatura que deseas convertir:"));
+
+            //Comprobamos si el numero es valido
+            if (isNaN(temperatura)) {
+                alert("Por favor, ingresa una temperatura válida.");
+                return;
+            }
+
+            //Hacemos la conversion metiendo la temperatura y dependiendo de la opcion llama a una funcion o a otra
+            let resultado;
+            if (tipoConversion === '1') {
+                resultado = celsiusAFahrenheit(temperatura);
+                alert(temperatura + " grados Celsius es igual a " + resultado.toFixed(2) + " grados Fahrenheit");
+            } else {
+                resultado = fahrenheitACelsius(temperatura);
+                alert(temperatura + " grados Fahrenheit es iual a " + resultado.toFixed(2) + " grados Celsius");
+            }
+        }
+
+        //Hacemos que aparezca en pantalla nada mas abrir el html en el navegador
+        window.onload = solicitarConversion;
+    </script>
+</body>
+
+</html>

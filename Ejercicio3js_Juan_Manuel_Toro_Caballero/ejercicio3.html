@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+
+    <form>
+        <input id="precio" type="number" placeholder="Precio">
+        <input id="cantidad" type="number" placeholder="Cantidad">
+        <input type="button" id="enviar" value="Calcular">
+        <input id="total" readonly placeholder="Total">
+    </form>
+
+    <script>
+        document.getElementById("enviar").addEventListener("click", function () {
+            //Creamos las variables para el precio y la cantidad
+            var precio = document.getElementById("precio").value;
+            var cantidad = document.getElementById("cantidad").value;
+
+            //Creamos otra variable para calcular la multiplicacion
+            var total = precio * cantidad;
+            document.getElementById("total").value = total;
+        });
+    </script>
+
+</body>
+
+</html>

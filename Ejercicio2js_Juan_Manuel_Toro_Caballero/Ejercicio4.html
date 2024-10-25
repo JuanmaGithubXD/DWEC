@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Descuentos</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 4: Calculadora de Descuentos</h1>
+
+    <script>
+        //Funcion para calcular el precio final despues de aplicar el descuento
+        function calcularPrecioFinal(precioOriginal, porcentajeDescuento) {
+            let descuento = (precioOriginal * porcentajeDescuento) / 100;
+            return precioOriginal - descuento;
+        }
+
+        //Funcion para pedir los datos
+        function solicitarDatos() {
+            //Pedimos los datos para poder hacer el descuento
+            let precioOriginal = parseFloat(prompt("Introduce el precio original del producto:"));
+            let porcentajeDescuento = parseFloat(prompt("Introduce el descuento del producto:"));
+
+            //Comprobamos si el numero es valido
+            if (isNaN(precioOriginal) || precioOriginal < 0 || isNaN(porcentajeDescuento) || porcentajeDescuento < 0) {
+                alert("Error, o el precio o el descuento no son validos");
+                return;
+            }
+
+            //Calculamos el descuento
+            let precioFinal = calcularPrecioFinal(precioOriginal, porcentajeDescuento);
+
+            //Mostramos el precio
+            alert("El precio final del producto despues de aplicar un descuento del " + porcentajeDescuento + "% es: " + precioFinal.toFixed(2) + " euros");
+        }
+
+        //Hacemos que aparezca en pantalla nada mas abrir el html en el navegador
+        window.onload = solicitarDatos;
+    </script>
+</body>
+
+</html>

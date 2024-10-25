@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 de JavaScript - Bucle for</title>
+    <script>
+        window.onload = function () {
+            // 5.1. Imprimir los números del 20 al 30
+            console.log("Números del 20 al 30:");
+            for (let i = 20; i <= 30; i++) {
+                console.log(i);
+            }
+
+            // Imprimir los números pares del 30 al 50
+            console.log("Números pares del 30 al 50:");
+            for (let i = 30; i <= 50; i++) {
+                if (i % 2 === 0) {
+                    console.log(i);
+                }
+            }
+
+            // Calcular la suma de los primeros 50 números naturales
+            let sumaNaturales = 0;
+            for (let i = 1; i <= 50; i++) {
+                sumaNaturales += i;
+            }
+            console.log("Suma de los primeros 50 números naturales: " + sumaNaturales);
+
+            // Imprimir la tabla de multiplicar del 8
+            console.log("Tabla de multiplicar del 8:");
+            for (let i = 1; i <= 10; i++) {
+                console.log("8 x " + i + " = " + (8 * i));
+            }
+
+            // Imprimir los elementos de un array
+            let arrayEjemplo = ["Manzana", "Banana", "Naranja", "Pera"];
+            console.log("Elementos del array:");
+            for (let i = 0; i < arrayEjemplo.length; i++) {
+                console.log(arrayEjemplo[i]);
+            }
+
+            // Imprimir un patrón de asteriscos en forma de triángulo, con altura 9
+            console.log("Patrón de asteriscos en forma de triángulo:");
+            let altura = 9;
+            for (let i = 1; i <= altura; i++) {
+                console.log("*".repeat(i));
+            }
+
+            // Calcular la suma de los números pares del 1 al 50
+            let sumaPares = 0;
+            for (let i = 1; i <= 50; i++) {
+                if (i % 2 === 0) {
+                    sumaPares += i;
+                }
+            }
+            console.log("Suma de los números pares del 1 al 50: " + sumaPares);
+
+            // Imprimir los números del 30 al 20 en orden descendente
+            console.log("Números del 30 al 20 en orden descendente:");
+            for (let i = 30; i >= 20; i--) {
+                console.log(i);
+            }
+
+            // Calculamos la media de los numeros del array
+            let numerosArray = [10, 20, 30, 40, 50];
+            let suma = 0;
+            for (let i = 0; i < numerosArray.length; i++) {
+                suma += numerosArray[i];
+            }
+            let promedio = suma / numerosArray.length;
+            console.log("Media de los numeros en el array: " + promedio);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Ejercicio 5 de JavaScript - Bucle for</h1>
+    <p>Abre la consola del navegador para ver los resultados del ejercicio</p>
+    <p>Si quieres cambiar algun dato puedes cambiarlo desde el HTML</p>
+</body>
+
+</html>

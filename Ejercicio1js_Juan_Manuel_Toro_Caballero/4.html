@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 de JavaScript - Arrays</title>
+    <script>
+        window.onload = function () {
+            // 4.1. Programa para encontrar el número más grande en una lista
+            function findLargestNumber(numbers) {
+                let largest = numbers[0]; // Asumimos que el primer número es el más grande
+                for (let i = 1; i < numbers.length; i++) {
+                    if (numbers[i] > largest) {
+                        largest = numbers[i];
+                    }
+                }
+                return largest;
+            }
+
+            let cantidad = parseInt(prompt("Ingresa la cantidad de números que quieres introducir:"));
+            if (!isNaN(cantidad) && cantidad > 0) {
+                let numeros = [];
+
+                for (let i = 0; i < cantidad; i++) {
+                    let numero = parseFloat(prompt("Ingresa el número " + (i + 1) + ":"));
+                    if (!isNaN(numero)) {
+                        numeros.push(numero);
+                    } else {
+                        alert("Por favor, ingresa un número válido.");
+                        i--; // Disminuir el índice para repetir la entrada
+                    }
+                }
+
+                let numeroMasGrande = findLargestNumber(numeros);
+                console.log("El número más grande es: " + numeroMasGrande);
+                alert("El número más grande es: " + numeroMasGrande);
+            } else {
+                alert("Por favor, ingresa un número válido para la cantidad.");
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Ejercicio 4 de JavaScript - Arrays</h1>
+    <p>Abre la consola del navegador para ver los resultados del ejercicio</p>
+    <p>Si quieres cambiar algun dato puedes cambiarlo desde el HTML</p>
+</body>
+
+</html>

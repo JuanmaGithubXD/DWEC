@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <style>
+        .oculto {
+            display: none
+        }
+
+        .visible {
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <div class="oculto" id="ficha1">
+        Hola, soy el bloque 1</div>
+    <div class="oculto" id="ficha2">
+        Hola, soy el bloque 2</div>
+    <div class="oculto" id="ficha3">
+        Hola, soy el bloque 3</div>
+
+    <script>
+        function mostrarFicha(fichaId) {
+            //Creamos los estados de cada tecla con dos estados, visible y oculto por si hay que cambiarlo
+            document.getElementById("ficha1").classList.remove("visible");
+            document.getElementById("ficha1").classList.add("oculto");
+            document.getElementById("ficha2").classList.remove("visible");
+            document.getElementById("ficha2").classList.add("oculto");
+            document.getElementById("ficha3").classList.remove("visible");
+            document.getElementById("ficha3").classList.add("oculto");
+
+            //Ahora si seleccionamos otra tecla lo que hace es eliminar la que estaba y muestra la nueva
+            var fichaSeleccionada = document.getElementById(fichaId);
+            fichaSeleccionada.classList.remove("oculto");
+            fichaSeleccionada.classList.add("visible");
+        }
+
+        //Detectamos cual tecla se ha presionado para mostrarlo en pantalla
+        document.addEventListener("keydown", function (event) {
+            //Llamamos al div de la tecla que hemos dado
+            if (event.key === "1") {
+                mostrarFicha("ficha1");
+            } else if (event.key === "2") {
+                mostrarFicha("ficha2");
+            } else if (event.key === "3") {
+                mostrarFicha("ficha3");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

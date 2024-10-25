@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+
+    <script>
+        //Creamos el onload para que funcione al momento en el que cargue la pagina
+        window.onload = function () {
+            //Seleccionamos el div con el id del cuadro
+            var cuadro = document.getElementById("cuadro");
+
+            //Creamos el evento en el que si ponemos el raton encima del div se vuelve de color rojo
+            cuadro.onmouseover = function () {
+                cuadro.style.backgroundColor = "red";
+            };
+
+            //Creamos el evento en el que si sacamos el raton del div
+            cuadro.onmouseout = function () {
+                cuadro.style.backgroundColor = "white";
+            };
+        };
+    </script>
+</head>
+
+<body>
+
+    <div style="display: block; width: 100px; height: 100px; background-color: white;" id="cuadro">
+        Cuadro que cambia al entrar el ratón
+    </div>
+
+</body>
+
+</html>

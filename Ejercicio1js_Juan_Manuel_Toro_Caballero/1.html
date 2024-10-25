@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 de JavaScript - Tipos basicos</title>
+    <script>
+        window.onload = function() {
+            // 1.1. Variable tipo string
+            let saludo = "¡Hola mundo!";
+            console.log(saludo);
+
+            // 1.2. Variable tipo number
+            let edad = 19; // Cambia tu edad aquí
+            console.log(edad);
+
+            // 1.3. Variable tipo boolean
+            let preferencia = true; // O false, según tu preferencia
+            console.log(preferencia);
+
+            // 1.4. Variables tipo null y undefined
+            let variableNull = null;
+            let variableUndefined;
+            console.log(variableNull);
+            console.log(variableUndefined);
+
+            // 1.5. Objeto representando un artículo
+            let articulo = {
+                name: "Idealcloset",
+                price: 5000,
+                category: "Electrónica"
+            };
+            console.log(articulo);
+
+            // 1.6. Array de ciudades
+            let ciudades = ["Londres", "Pekin", "Valencia", "Sevilla"];
+            console.log(ciudades);
+
+            // 1.7. Modificación de una variable
+            let colorFavorito = "Rojo";
+            console.log("Color: " + colorFavorito);
+            colorFavorito = "Verde"; 
+            console.log("Color modificado: " + colorFavorito);
+
+            // 1.8. Variable sin valor y variable null
+            let variableSinValor;
+            let variableConNull = null;
+            console.log(variableSinValor);
+            console.log(variableConNull);
+
+            // 1.9. Alcance de las variables
+            let variableGlobal = "Soy una variable global";
+
+            function pruebaAlcance() {
+                let variableLocal = "Soy una variable local";
+                console.log(variableLocal); // Acceso correcto
+                console.log(variableGlobal); // Acceso correcto
+            }
+
+            pruebaAlcance();
+            console.log(variableGlobal);
+            // console.log(variableLocal); // Esto causaría un error si se descomenta
+
+            // 1.10. Nombres de variables
+            let variable_valida = "Valido";
+            //let 1variable_invalida;  Esto causaría un error
+
+            console.log("Nombre de la variable es valido: " + variable_valida);
+            // console.log(1variable_invalida); // Esto causaría un error
+
+            // 1.11. Uso de operadores
+            let num1 = 24;
+            let num2 = 12;
+            console.log("Suma: " + (num1 + num2));
+            console.log("Resta: " + (num1 - num2));
+            console.log("Multiplicación: " + (num1 * num2));
+            console.log("División: " + (num1 / num2));
+            console.log("Módulo: " + (num1 % num2));
+            num1++;
+            num2--;
+            console.log("Incremento de num1: " + num1);
+            console.log("Decremento de num2: " + num2);
+
+            // 1.12. Cadena de texto con caracteres de escape
+            let cadenaMultilinea = "Línea 1\nLínea 2\n\tLínea 3 con tabulación";
+            console.log(cadenaMultilinea);
+        };
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 1 de JavaScript - Tipos basicos</h1>
+    <p>Abre la consola del navegador para ver los resultados del ejercicio</p>
+    <p>Si quieres cambiar algun dato puedes cambiarlo desde el HTML</p>
+
+</body>
+</html>

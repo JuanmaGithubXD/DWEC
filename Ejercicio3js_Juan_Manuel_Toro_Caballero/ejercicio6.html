@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+
+<body>
+
+    <label>Coordenada X</label>
+    <input id="cX"> </div>
+    <label>Coordenada Y</label>
+    <input id="cY"> </div>
+</body>
+
+<script>
+    //Creamos el evento que detecta el movimiento del raton
+    document.addEventListener("mousemove", function (event) {
+        //Ahora creamos variables para calcular la posicion del raton
+        var x = event.screenX;
+        var y = event.screenY;
+
+        //Mostramos la posicion del raton y lo ponemos en las coordenadas X e Y
+        document.getElementById("cX").value = x;
+        document.getElementById("cY").value = y;
+    });
+</script>
+
+</body>
+
+</html>

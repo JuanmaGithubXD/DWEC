@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+
+<body>
+
+    <form>
+        <label>No se aceptan dígitos</label>
+        <input type="text" id="letras">
+    </form>
+
+    <script>
+        //Creamos una variable para poner los inputs de las letras
+        var inputLetras = document.getElementById("letras");
+
+        // Manejador de eventos para evitar que se ingresen dígitos
+        inputLetras.addEventListener("keydown", function (event) {
+            //Creamos un if en el que si detecta un numero no lo escribe
+            if (event.key >= '0' && event.key <= '9') {
+                event.preventDefault(); //Si detecta un numero no lo añade
+            }
+        });
+    </script>
+
+</body>
+
+</html>

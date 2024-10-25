@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Factorial</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 8: Calculadora de Factorial</h1>
+
+    <script>
+        //Funcion para calcular el factorial
+        function calculateFactorial(number) {
+            let result = 1;
+            for (let i = 1; i <= number; i++) {
+                result *= i; //Creamos un bucle para multiplicarlo varias veces y calcular el factorial
+            }
+            return result;
+        }
+
+        //Creamos la funcion principal
+        function solicitarNumero() {
+            let number = parseInt(prompt("Introduce un numero que no sea negativo:"));
+
+            //Comprobamos si el numero no es negativo
+            if (isNaN(number) || number < 0) {
+                alert("Error, el numero que has escrito no es valido");
+                return;
+            }
+
+            //Llamamos a la funcion para que calcule el factorial del numero y luego imprima
+            let factorial = calculateFactorial(number);
+            alert("El factorial de " + number + " es: " + factorial);
+        }
+
+        //Hacemos que aparezca en pantalla nada mas abrir el html en el navegador
+        window.onload = solicitarNumero;
+    </script>
+</body>
+
+</html>

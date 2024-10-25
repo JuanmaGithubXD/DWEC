@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Números Primos</title>
+</head>
+
+<body>
+    <h1>Ejercicio JavaScript 5: Generador de Números Primos</h1>
+
+    <script>
+        // Funcion para ver si un numero es primo
+        function esPrimo(numero) {
+            if (numero <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) return false;
+            }
+            return true;
+        }
+
+        //Funcion principal
+        function generarPrimos() {
+            //Pedimos los numeros
+            let primerNumero = parseInt(prompt("Introduce el primer numero:"));
+            let segundoNumero = parseInt(prompt("Introduce el segundo numero:"));
+
+            //Vemos si los numeros son validos
+            if (isNaN(primerNumero) || isNaN(segundoNumero) || primerNumero > segundoNumero) {
+                alert("Error, asegurate de que el primero sea menor o igual al segundo");
+                return;
+            }
+
+            //Variable para acumular los numeros primos
+            let mensajePrimos = "Los numeros primos entre " + primerNumero + " y " + segundoNumero + " son: ";
+
+            //Buscamos los numeros primos
+            for (let i = primerNumero; i <= segundoNumero; i++) {
+                if (esPrimo(i)) {
+                    mensajePrimos += i + " ";
+                }
+            }
+
+            //Nos salta este mensaje si no hay numeros primos entre esos numeros
+            alert(mensajePrimos.length > 0 ? mensajePrimos : "No hay numeros primos entre los numeros que has puesto");
+        }
+
+        //Hacemos que aparezca en pantalla nada más abrir el HTML en el navegador
+        window.onload = generarPrimos;
+    </script>
+</body>
+
+</html>
