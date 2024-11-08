@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 1</title>
+</head>
+
+<body>
+    <h1>ejercicio 1</h1>
+
+    <script>
+        let diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+
+        let numero = parseInt(prompt("Introduce un numero entre 1 y 7 para buscar el dia de la semana: "));
+
+        //Se resta 1 para que se pueda mover bien por los arrays
+        let dia = diasSemana[numero - 1]
+
+        alert("El dia de la semana es " + dia);
+    </script>
+
+</body>
+
+</html>

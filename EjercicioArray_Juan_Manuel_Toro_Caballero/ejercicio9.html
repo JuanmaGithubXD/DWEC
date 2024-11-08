@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 9</title>
+</head>
+
+<body>
+
+    <h1>Ejercicio 9</h1>
+    <script>
+        function servicio(dia) {
+            let turnos = [
+                ["lunes", "María"],
+                ["martes", "Luis"],
+                ["miercoles", "Antonia"],
+                ["jueves", "Pedro"],
+                ["viernes", "Marisa"]
+            ];
+
+            dia = dia.toLowerCase();
+
+            for (let i = 0; i < turnos.length; i++) {
+                if (turnos[i][0] === dia) {
+                    alert("Ese dia se encarga " + turnos[i][1]);
+                    return;
+                }
+            }
+
+
+            alert("Ese dia no hay servicios");
+        }
+
+        servicio("Lunes");
+        servicio("Miercoles");
+        servicio("Domingo");
+    </script>
+
+</body>
+
+</html>

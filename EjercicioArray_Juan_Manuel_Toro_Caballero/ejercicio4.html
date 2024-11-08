@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+
+    <h1>Ejercicio 4</h1>
+
+    <script>
+        let numeros = [];
+        let pares = 0;
+        let impares = 0;
+
+        while (true) {
+            let num = prompt("Introduce un numero, escribe 0 si quieres terminar:");
+
+
+            num = parseInt(num);
+
+            if (num === 0) {
+                break;
+            }
+
+            numeros[numeros.length] = num;
+
+            if (num % 2 === 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+        }
+
+        alert("El array: [" + numeros + "] tiene " + pares + " numeros pares y " + impares + " numeros impares");
+    </script>
+
+</body>
+
+</html>

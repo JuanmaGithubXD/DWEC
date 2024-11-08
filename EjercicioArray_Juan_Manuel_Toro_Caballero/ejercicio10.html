@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 10</title>
+</head>
+
+<body>
+
+    <h1>Ejercicio 10</h1>
+
+    <script>
+        function precio(producto) {
+            let lista = [
+                ["monitor", 200],
+                ["teclado", 20],
+                ["raton", 10]
+            ];
+
+            for(let i = 0;i<lista.length;i++){
+                if(lista[i][0] === producto){
+                    return lista [i][1];
+                }
+            }
+
+            return "No se ha encontrado el producto que has querio seleccionar";
+        }
+
+        alert(precio("monitor"));
+        alert(precio("teclado"));
+        alert(precio("raton"));
+        alert(precio("altavoz"));
+    </script>
+
+</body>
+
+</html>
