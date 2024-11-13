@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+
+    <h1>Ejercicio 2</h1>
+
+    <script>
+        function isEmpty(obj) {
+            for (let key in obj) {
+                return false;
+            }
+            return true;
+        }
+
+        // Ejemplo
+        let schedule = {};
+        alert(isEmpty(schedule)); // true
+
+        schedule["8:30"] = "Hora de levantarse";
+        alert(isEmpty(schedule)); // false
+
+
+    </script>
+
+</body>
+
+</html>
