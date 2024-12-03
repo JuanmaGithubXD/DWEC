@@ -75,7 +75,7 @@
             <label for="aceptar">Acepto las condiciones</label>
             <br><br>
         </div>
-        <!-- Creamos un boton para terminar el formulario -->
+        <!-- Creamos un boton para terminar el formulario, esta bloqueado hasta que no se cumplan con los requisitos de cada campo -->
         <button type="submit" id="submit-btn" disabled>Crear cuenta</button>
     </form>
 
@@ -92,13 +92,14 @@
         // Creamos una variable para guardar el resultado y que sea mas facil luego
         let respuestaCorrecta = generarSuma();
 
-        // Creamos una funcion para que aparezca marcado la
+        // Creamos una funcion para que aparezca marcado la casilla de las condiciones
         function activarBoton() {
             let checkbox = document.getElementById('aceptar');
             let boton = document.getElementById('submit-btn');
             boton.disabled = !checkbox.checked;
         }
 
+        // Creamos la validacion del campo nombre, si no se cumple con las condiciones se envia el error
         document.getElementById('nombre').addEventListener('input', function () {
             let nombre = document.getElementById('nombre').value;
             if (nombre.trim() === '') {
@@ -108,6 +109,7 @@
             }
         });
 
+        // Creamos la validacion del campo correo, si no se cumple con las condiciones se envia el error
         document.getElementById('correo').addEventListener('input', function () {
             let correo = document.getElementById('correo').value;
             let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -118,6 +120,7 @@
             }
         });
 
+        // Creamos la validacion del campo contraseña, si no se cumple con las condiciones se envia el error
         document.getElementById('contra').addEventListener('input', function () {
             let contra = document.getElementById('contra').value;
             let regexcontra = /^(?=.*\d).{8,}$/;
@@ -128,6 +131,7 @@
             }
         });
 
+        // Creamos la validacion del campo donde se repite la contraseña, si no se cumple con las condiciones se envia el error
         document.getElementById('repite-contra').addEventListener('input', function () {
             let repitecontra = document.getElementById('repite-contra').value;
             let contra = document.getElementById('contra').value;
@@ -138,6 +142,7 @@
             }
         });
 
+        // Creamos la validacion del campo suma, si no se cumple con las condiciones se envia el error
         document.getElementById('suma').addEventListener('input', function () {
             let suma = parseInt(document.getElementById('suma').value);
             if (suma !== respuestaCorrecta) {
@@ -147,6 +152,7 @@
             }
         });
 
+        // Si se cumplen con las condiciones y le damos a aceptar saltara el mensaje de que se ha creado la cuenta
         document.getElementById('aceptar').addEventListener('change', activarBoton);
 
         document.getElementById('form').addEventListener('submit', function (event) {
