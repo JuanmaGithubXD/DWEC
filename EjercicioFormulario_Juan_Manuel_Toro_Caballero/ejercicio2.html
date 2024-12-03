@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+
+    <!-- Añadimos colores para mostrar si el campo cumpole con los requisitos, mostrandose de color verde si es correcto -->
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+
+        select:invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Formulario registro</h2>
+
+    <!-- Creamos el formulario, enviando los datos de este al documento grabar.php -->
+    <form id="form" action="grabar.php" method="POST">
+
+        <!-- Añadimos el campo donde se va a poder escribir el nombre de usuario -->
+        <div>
+            <label for="usuario">Nombre de usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <!-- Si el nombre de usuario no cumple con los requisitos se llama al error usuario, que ya explicaremos luego -->
+            <span id="error-usuario" class="error"></span>
+            <br><br>
+        </div>
+
+        <!-- Creamos la parte de contraseña, que funciona como el nombre de usuario y que llama a su propio error por si no cumple con los requisitos -->
+        <div>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+            <span id="error-contraseña" class="error"></span>
+            <br><br>
+        </div>
+
+        <!-- El campo poblacion vamos a hacer una lista desplegable con los municipios, con su error personalizado -->
+        <div>
+            <label for="poblacion">Población:</label>
+            <select id="poblacion" name="poblacion" required>
+                <!-- Ponemos seleccione como primera eleccion dentro de la lista -->
+                <option value="" disabled selected>– Seleccione –</option>
+                <option value="Algeciras">Algeciras</option>
+                <option value="Arcos">Arcos</option>
+                <option value="Barbate">Barbate</option>
+                <option value="Cadiz">Cádiz</option>
+                <option value="Chiclana">Chiclana</option>
+                <option value="Conil">Conil</option>
+                <option value="San Fernando">San Fernando</option>
+                <option value="Jerez">Jerez</option>
+                <option value="La Línea">La Linea</option>
+                <option value="Tarifa">Tarifa</option>
+                <option value="Vejer">Vejer</option>
+            </select>
+            <span id="error-poblacion" class="error"></span>
+            <br><br>
+        </div>
+        <!-- Añadimos el boton de registrar -->
+        <button type="submit">Registrar</button>
+    </form>
+
+    <script>
+        // LLamamos al valor del nombre de usuario
+        document.getElementById('usuario').addEventListener('input', function () {
+            // Obtenemos el valor que vamos escribiendo
+            let usuario = document.getElementById('usuario').value;
+            // Creamos la validacion para que el nombre del usuario solo pueda tener como maximo 8 caracteres y que no pueda tener espacios entre medio
+            let regexUsuario = /^[^\s]{8,}$/;
+            // Creamos un if donde si no se cumple los requisitos sale el error al que hemos llamado para que se muestre en el formulario
+            if (!regexUsuario.test(usuario)) {
+                document.getElementById('error-usuario').innerText = 'El nombre debe tener al menos 8 caracteres sin espacios';
+            } else {
+                document.getElementById('error-usuario').innerText = '';
+            }
+        });
+
+        // Llamamos al valor de la contraseña
+        document.getElementById('contraseña').addEventListener('input', function () {
+            // Hacemos lo mismo que con el nombre, solo que aqui la contraseña tiene otra validacion
+            let contraseña = document.getElementById('contraseña').value;
+            let regexContraseña = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,10}$/;
+            if (!regexContraseña.test(contraseña)) {
+                document.getElementById('error-contraseña').innerText = 'La contraseñaa debe tener entre 6 y 10 caracteres, incluir al menos un digito y una letra mayuscula';
+            } else {
+                document.getElementById('error-contraseña').innerText = '';
+            }
+        });
+
+        // Llamamos al valor de la lista
+        document.getElementById('poblacion').addEventListener('change', function () {
+            let poblacion = document.getElementById('poblacion').value;
+            // La lista tiene solamente la validacion que es si se ha seleccionado o no algun municipio
+            if (!poblacion) {
+                document.getElementById('error-poblacion').innerText = 'Se debe seleccionar una poblacion';
+            } else {
+                document.getElementById('error-poblacion').innerText = '';
+            }
+        });
+
+        // Para terminar llamamos al formulario como tal, donde obtenemos los valores de los otros datos
+        document.getElementById('form').addEventListener('submit', function (event) {
+            let usuario = document.getElementById('usuario').value;
+            let contraseña = document.getElementById('contraseña').value;
+            let poblacion = document.getElementById('poblacion').value;
+
+            // Creamos un if en el caso de que falten algunos datos por no contestar(Aun asi no debería salir ya que en el formulario tenemos los required pero lo ponemos por si estos fallan)
+            if (!usuario || !contraseña || !poblacion) {
+                event.preventDefault();
+                alert('Aun faltan cosas por rellenar!kk');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+
+    <!-- Añadimos colores para mostrar si el campo cumpole con los requisitos, mostrandose de color verde si es correcto -->
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Formulario</h2>
+    <!-- Creamos el formulario -->
+    <form id="form" action="#" method="POST">
+        <!-- Creamos el campo de nombre dentro del formulario -->
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <!-- Si el campo nombre no cumple con la validacion se llamará al error nombre, que explicaremos mas adelante -->
+            <span id="error-nombre" class="error"></span>
+            <br><br>
+        </div>
+
+        <!-- Creamos el campo de correo en el formulario -->
+        <div>
+            <label for="correo">Correo electronico:</label>
+            <input type="email" id="correo" name="correo" required>
+            <!-- Como con el nombre si no cumple con los requisitos se llamara al error correo -->
+            <span id="error-correo" class="error"></span>
+            <br><br>
+
+        </div>
+        <!-- Creamos el campo de contraseña en el formulario -->
+        <div>
+            <label for="contra">Contraseña (min. 8 caracteres, 1 digito):</label>
+            <input type="password" id="contra" name="contra" required>
+            <!-- Como en los otros valores este tambien tiene un error personalizado -->
+            <span id="error-contra" class="error"></span>
+            <br><br>
+
+        </div>
+        <!-- Creamos un campo donde se repite la contraseña con su error personalizado -->
+        <div>
+            <label for="repite-contra">Repetir contraseña:</label>
+            <input type="password" id="repite-contra" name="repite-contra" required>
+            <span id="error-repite-contra" class="error"></span>
+            <br><br>
+
+        </div>
+        <!-- Creamos el valor suma con su error personalizado -->
+        <div>
+            <label id="suma-label"></label>
+            <input type="number" id="suma" required>
+            <span id="error-suma" class="error"></span>
+            <br><br>
+        </div>
+        <!-- Hacemos una checkbox que simula aceptar las condiciones de la pagina -->
+        <div>
+            <input type="checkbox" id="aceptar" name="aceptar">
+            <label for="aceptar">Acepto las condiciones</label>
+            <br><br>
+        </div>
+        <!-- Creamos un boton para terminar el formulario -->
+        <button type="submit" id="submit-btn" disabled>Crear cuenta</button>
+    </form>
+
+    <script>
+        // Creamos la funcion generar suma, que escoge aleatoriamente dos numeros para crear la suma, devolviendo su resultado
+        function generarSuma() {
+            let num1 = Math.floor(Math.random() * 10);
+            let num2 = Math.floor(Math.random() * 10);
+            let resultado = num1 + num2;
+            // Mostramos los dos numeros que se van a sumar en el formulario
+            document.getElementById('suma-label').innerText = `${num1} + ${num2} = ?`;
+            return resultado;
+        }
+        // Creamos una variable para guardar el resultado y que sea mas facil luego
+        let respuestaCorrecta = generarSuma();
+
+        // Creamos una funcion para que aparezca marcado la
+        function activarBoton() {
+            let checkbox = document.getElementById('aceptar');
+            let boton = document.getElementById('submit-btn');
+            boton.disabled = !checkbox.checked;
+        }
+
+        document.getElementById('nombre').addEventListener('input', function () {
+            let nombre = document.getElementById('nombre').value;
+            if (nombre.trim() === '') {
+                document.getElementById('error-nombre').innerText = 'El nombre no puede estar vacio';
+            } else {
+                document.getElementById('error-nombre').innerText = '';
+            }
+        });
+
+        document.getElementById('correo').addEventListener('input', function () {
+            let correo = document.getElementById('correo').value;
+            let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!regexCorreo.test(correo)) {
+                document.getElementById('error-correo').innerText = 'El correo electronico no valido, tiene que seguir el formato(ejemplo@dominio.com)';
+            } else {
+                document.getElementById('error-correo').innerText = '';
+            }
+        });
+
+        document.getElementById('contra').addEventListener('input', function () {
+            let contra = document.getElementById('contra').value;
+            let regexcontra = /^(?=.*\d).{8,}$/;
+            if (!regexcontra.test(contra)) {
+                document.getElementById('error-contra').innerText = 'La contraseña debe tener al menos 8 caracteres y un dígito.';
+            } else {
+                document.getElementById('error-contra').innerText = '';
+            }
+        });
+
+        document.getElementById('repite-contra').addEventListener('input', function () {
+            let repitecontra = document.getElementById('repite-contra').value;
+            let contra = document.getElementById('contra').value;
+            if (repitecontra !== contra) {
+                document.getElementById('error-repite-contra').innerText = 'Las contraseñas no coinciden';
+            } else {
+                document.getElementById('error-repite-contra').innerText = '';
+            }
+        });
+
+        document.getElementById('suma').addEventListener('input', function () {
+            let suma = parseInt(document.getElementById('suma').value);
+            if (suma !== respuestaCorrecta) {
+                document.getElementById('error-suma').innerText = 'Respuesta incorrecta.';
+            } else {
+                document.getElementById('error-suma').innerText = '';
+            }
+        });
+
+        document.getElementById('aceptar').addEventListener('change', activarBoton);
+
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Formulario enviado correctamente :D');
+        });
+    </script>
+</body>
+
+</html>
