@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h1>Descifrado César</h1>
+    <form onsubmit="event.preventDefault(); descifrarTexto();">
+        <!-- Campo para seleccionar el alfabeto (Castellano o Inglés) -->
+        <label for="alphabet">Alfabeto:</label>
+        <select id="alphabet">
+            <option value="castellano">Castellano</option>
+            <option value="ingles">Inglés</option>
+        </select>
+        <br><br>
+
+        <!-- Campo para meter el texto cifrado -->
+        <label for="cipher-text">Texto cifrado:</label><br>
+        <textarea id="cipher-text" rows="4" cols="50" required></textarea>
+        <br><br>
+
+        <!-- Campo para poner el nivel de rotación -->
+        <label for="rotation">Nivel de rotación:</label>
+        <input type="number" id="rotation" min="0" required>
+        <br><br>
+
+        <!-- Botón para descifrar -->
+        <button type="submit">Descifrar</button>
+    </form>
+
+    <!-- Mostramos el resultado del descifrado -->
+    <div>
+        <h2>Resultado:</h2>
+        <p id="result" style="color: red;"></p>
+    </div>
+
+    <script>
+        // Función para descifrar el texto
+        function descifrarTexto() {
+            // Dependiendo de la opcion del formulario escoge un alfabeto u otro
+            let alfabeto = document.getElementById("alphabet").value === "castellano"
+                // Alfabeto en español (con Ñ)
+                ? "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+                // Alfabeto en inglés 
+                : "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+
+            // Funciones para obtener el texto cifrado y el nivel de rotación
+            // Texto a descifrar
+            let texto = document.getElementById("cipher-text").value; 
+            // Nivel de rotación
+            let rot = parseInt(document.getElementById("rotation").value, 10); 
+            let descifrado = "";
+
+            // Creamos un bucle para recorrer cada caracter del texto
+            for (let char of texto) {
+                // Se busca la posición del caracter en el alfabeto
+                let index = alfabeto.indexOf(char); 
+                if (index === -1) {
+                    // Si el caracter no está en el alfabeto se mantiene igual
+                    descifrado += char;
+                } else {
+                    // Calculamos la posicion despues de añadir la rotacion
+                    let newIndex = (index - rot + alfabeto.length) % alfabeto.length;
+                    // Se añade el carácter descifrado al resultado
+                    descifrado += alfabeto[newIndex]; 
+                }
+            }
+
+            // Mostramos el texto descifrado
+            document.getElementById("result").textContent = descifrado;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        /* Estilo para mostrar los errores en rojo */
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Configuración de usuario</h1>
+    <form id="formulario" action="cambia_cuenta.php" method="POST">
+        <!-- Campo para seleccionar cuándo pedir inicio de sesion -->
+        <h2>Inicio de sesión</h2>
+        <label for="inicioSesion">¿Cuándo quieres que Windows te vuelva a pedir que inicies sesión?</label>
+        <select id="inicioSesion" name="inicioSesion">
+            <option value="suspension">Cuando el PC se activa tras haber estado en suspensión</option>
+            <option value="nunca">Nunca</option>
+        </select>
+        <br><br>
+
+        <!-- Campo para gestionar la contraseña -->
+        <h2>Contraseña</h2>
+        <label for="nuevaContrasena">Nueva contraseña:</label>
+        <input type="password" id="nuevaContrasena" name="nuevaContrasena" required>
+        <span id="errorContrasena" class="error"></span> <!-- Mensaje de error si la contraseña no es válida -->
+        <br><br>
+
+        <label for="repetirContrasena">Vuelve a escribir la contraseña:</label>
+        <input type="password" id="repetirContrasena" name="repetirContrasena" required>
+        <span id="errorRepetirContrasena" class="error"></span> <!-- Mensaje de error si las contraseñas no coinciden -->
+        <br><br>
+
+        <label for="indicioContrasena">Indicio de contraseña:</label>
+        <input type="text" id="indicioContrasena" name="indicioContrasena" required> <!-- Indicio que no debe incluir la contraseña -->
+        <br><br>
+
+        <!-- Campo de privacidad -->
+        <h2>Privacidad</h2>
+        <input type="checkbox" id="mostrarDetalles" name="mostrarDetalles">
+        <label for="mostrarDetalles">Mostrar detalles de la cuenta en la pantalla de inicio de sesión</label>
+        <br><br>
+
+        <!-- Boton para enviar el formulario -->
+        <button type="submit">Aceptar</button>
+    </form>
+
+    <script>
+        let form = document.getElementById("formulario");
+        let nuevaContrasena = document.getElementById("nuevaContrasena");
+        let repetirContrasena = document.getElementById("repetirContrasena");
+        let indicioContrasena = document.getElementById("indicioContrasena");
+        let errorContrasena = document.getElementById("errorContrasena");
+        let errorRepetirContrasena = document.getElementById("errorRepetirContrasena");
+
+        form.addEventListener("submit", function (event) {
+            // Creamos el valor para comprobar que todo esta biien
+            let esValido = true; 
+
+            let contrasena = nuevaContrasena.value;
+
+            // Validamos que la contraseña empiece con mayúscula y tenga al menos 6 caracteres
+            let regexContrasena = /^[A-Z][A-Za-z\d]{5,}$/;
+            if (!regexContrasena.test(contrasena)) {
+                errorContrasena.textContent = "La contraseña debe empezar por una letra mayúscula, tener al menos un dígito y un mínimo de 6 caracteres.";
+                esValido = false; 
+            } else {
+                errorContrasena.textContent = ""; 
+            }
+
+            // Vemos si la contraseña es igual
+            if (contrasena !== repetirContrasena.value) {
+                errorRepetirContrasena.textContent = "Las contraseñas no coinciden. Vuelve a intentarlo.";
+                esValido = false;
+            } else {
+                errorRepetirContrasena.textContent = "";
+            }
+
+            // Validamos que el indicio de contraseña no tenga la contraseña
+            if (indicioContrasena.value.includes(contrasena)) {
+                errorContrasena.textContent = "El indicio de contraseña no puede contener la contraseña.";
+                indicioContrasena.focus();
+                indicioContrasena.select(); 
+                esValido = false; 
+            }
+
+            // Si hay algún parametro que no este bien, no se envia el formulario
+            if (!esValido) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
