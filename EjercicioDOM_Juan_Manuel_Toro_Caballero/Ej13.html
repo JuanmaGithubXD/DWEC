@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej13</title>
+</head>
+
+<body>
+
+    <button onclick="marcarTodos()">Marcar todos</button>
+    <button onclick="desmarcarTodos()">Desmarcar todos</button>
+
+    <div id="checkboxes"></div>
+
+    <script>
+        for (let i = 0; i < 100; i++) {
+            let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+            document.getElementById('checkboxes').innerHTML += '<input type="checkbox"> ' + numeroAleatorio + ' <br>';
+        }
+
+        function marcarTodos() {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        }
+
+        function desmarcarTodos() {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

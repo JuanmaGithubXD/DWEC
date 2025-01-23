@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ej7</title>
+</head>
+
+<body>
+  <p>
+    <label for="valor1">Ingrese primer valor:</label>
+    <input type="number" id="valor1" />
+  </p>
+  <p>
+    <label for="valor2">Ingrese segundo valor:</label>
+    <input type="number" id="valor2" />
+  </p>
+  <p>
+    <input type="checkbox" id="suma" />Sumar
+  </p>
+  <p>
+    <input type="checkbox" value="resta" id="resta" />Restar
+  </p>
+  <p>
+    <input type="button" value="Operar" onclick="calcular()" />
+  </p>
+  <p id="resultado"></p>
+
+</body>
+
+<script>
+  function calcular() {
+    let primNum = parseFloat(document.getElementById("valor1").value);
+    let segNum = parseFloat(document.getElementById("valor2").value);
+    let suma = primNum + segNum;
+    let resta = primNum - segNum;
+    let sumaChecked = document.getElementById("suma").checked;
+    let restaChecked = document.getElementById("resta").checked;
+
+    let resultado = [];
+    if (sumaChecked) {
+      resultado.push("La suma es " + suma);
+    }
+    if (restaChecked) {
+      resultado.push("La diferencia es " + resta);
+    }
+    if (!sumaChecked && !restaChecked) {
+      resultado.push("Tienes que seleccionar como minimo una operacion");
+    }
+    document.getElementById("resultado").innerHTML = resultado.join(" - ");
+  }
+</script>
+
+</html>

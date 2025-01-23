@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej14</title>
+</head>
+
+<body>
+
+    <button onclick="reaparecer()">Reaparecer</button>
+
+    <p id="parrafo1">Primer parrafo</p>
+    <p id="parrafo2">Segundo parrafo</p>
+    <p id="parrafo3">Tercer parrafo</p>
+
+    <script>
+        document.getElementById('parrafo1').addEventListener('click', function () {
+            this.style.display = 'none';
+        });
+
+        document.getElementById('parrafo2').addEventListener('click', function () {
+            this.style.display = 'none';
+        });
+
+        document.getElementById('parrafo3').addEventListener('click', function () {
+            this.style.display = 'none';
+        });
+
+        document.getElementById('parrafo1').addEventListener('dblclick', function () {
+            this.remove();
+        });
+
+        document.getElementById('parrafo2').addEventListener('dblclick', function () {
+            this.remove();
+        });
+
+        document.getElementById('parrafo3').addEventListener('dblclick', function () {
+            this.remove();
+        });
+
+        function reaparecer() {
+            let parrafos = document.querySelectorAll('p');
+            parrafos.forEach(function (parrafo) {
+                if (parrafo.style.display === 'none') {
+                    parrafo.style.display = 'block';
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
