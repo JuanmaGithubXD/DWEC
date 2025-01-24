@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Ejercicio 14 - DOM b�sico y atributos XHTML</title>
+    <script type="text/javascript">
+        function muestraOculta(idContenido, idEnlace) {
+            let contenido = document.getElementById(idContenido);
+
+            let enlace = document.getElementById(idEnlace);
+
+            if (contenido.style.display === "none") {
+                contenido.style.display = "block";
+                enlace.innerHTML = "Ocultar contenidos";
+            } else {
+                contenido.style.display = "none";
+                enlace.innerHTML = "Mostrar contenidos";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="contenidos_1">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus
+        libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc,
+        posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices
+        porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis,
+        faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+        posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+    </p>
+    <a id="enlace_1" href="#" onclick="muestraOculta('contenidos_1', 'enlace_1'); return false;">Ocultar contenidos</a>
+    <br />
+    <p id="contenidos_2">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus
+        libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc,
+        posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices
+        porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis,
+        faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+        posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+    </p>
+    <a id="enlace_2" href="#" onclick="muestraOculta('contenidos_2', 'enlace_2'); return false;">Ocultar contenidos</a>
+    <br />
+    <p id="contenidos_3">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus
+        libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc,
+        posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices
+        porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis,
+        faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+        posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+    </p>
+    <a id="enlace_3" href="#" onclick="muestraOculta('contenidos_3', 'enlace_3'); return false;">Ocultar contenidos</a>
+</body>
+
+</html>

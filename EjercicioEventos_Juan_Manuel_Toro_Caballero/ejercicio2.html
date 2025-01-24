@@ -1,0 +1,73 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Ejercicio 15 - Informaci�n sobre eventos</title>
+	<style type="text/css">
+		body {
+			font-family: arial, helvetica;
+		}
+
+		#info {
+			width: 160px;
+			border: thin solid silver;
+			padding: .5em;
+			position: fixed;
+		}
+
+		#info h1 {
+			margin: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		function muestraInformacion(mensaje) {
+			let info = document.getElementById("info");
+			info.innerHTML = '<h1>' + mensaje[0] + '</h1>';
+			for (let i = 1; i < mensaje.length; i++) {
+				info.innerHTML += '<p>' + mensaje[i] + '</p>';
+			}
+		}
+
+		document.onmousemove = function (event) {
+			let mensaje = [
+				"Raton",
+				"Navegador [" + event.clientX + ", " + event.clientY + "]",
+				"Pagina [" + event.pageX + ", " + event.pageY + "]"
+			];
+			muestraInformacion(mensaje);
+
+			let info = document.getElementById("info");
+			info.style.backgroundColor = "#FFFFFF";
+		};
+
+		document.onkeydown = function (event) {
+			let mensaje = [
+				"Teclado",
+				"Caracter: " + event.key,
+				"Codigo: " + event.code
+			];
+			muestraInformacion(mensaje);
+
+			let info = document.getElementById("info");
+			info.style.backgroundColor = "#CCE6FF";
+		};
+
+		document.onmousedown = function () {
+			let info = document.getElementById("info");
+			info.style.backgroundColor = "#FFFFCC"; 
+		};
+	</script>
+</head>
+
+<body>
+	<div id="info"></div>
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+		data-cf-settings="5ec37510910e03a7c92d3507-|49" defer></script>
+</body>
+
+</html>
